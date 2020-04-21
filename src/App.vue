@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <AlertButton class="block" @alert="displayAlert" />
+    <AlertButton class="block" name="Anderson" @alert="displayAlert" />
+    <Dummy class="block" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import AlertButton from './components/AlertButton.vue'
+import Dummy from './components/Dummy.vue'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
-  }
-};
+    AlertButton,
+    Dummy,
+  },
+  methods: {
+    displayAlert(name) {
+      console.log('Received greetings to:', name)
+    },
+  },
+}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.block {
+  display: block;
 }
 </style>
